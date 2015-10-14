@@ -1,15 +1,20 @@
 package it.zeze.main;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class MainWindows extends Main {
 	
-	public void superMain() {
-		super.execute();
+	public void superMain(String user, String pass) {
+		super.execute(user, pass);
 	}
 	
 	/**
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		MainWindows mainWindows = new MainWindows();
 		mainWindows.filePathFantaGazzettaHTML= "C:/Users/yyi3867/Desktop/ZeZe/fantaFormazione/html/fantagazzetta.html";
 		mainWindows.filePathGazzettaHTML = "C:/Users/yyi3867/Desktop/ZeZe/fantaFormazione/html/gazzetta.html";
@@ -29,7 +34,13 @@ public class MainWindows extends Main {
 		
 		mainWindows.filePathVotiFantaGazzettaHTML ="C:/Users/yyi3867/Desktop/ZeZe/fantaFormazione/html/votiFantaGazzetta.html";
 		mainWindows.filePathVotiFantaGazzettaTXT ="C:/Users/yyi3867/Desktop/ZeZe/fantaFormazione/txt/votiFantaGazzetta.txt";
-		mainWindows.superMain();
+		
+		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Inserisci user accesso al sito: ");
+		String user = dataIn.readLine();
+		System.out.print("Inserisci pass accesso al sito: ");
+		String pass = dataIn.readLine();
+		mainWindows.superMain(user, pass);
 	}
 
 }

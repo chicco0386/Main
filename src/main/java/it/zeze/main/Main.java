@@ -34,13 +34,13 @@ public class Main {
 	protected String filePathVotiFantaGazzettaHTML;
 	protected String filePathVotiFantaGazzettaTXT;
 
-	public void execute() {
+	public void execute(String user,String pass) {
 		try {
 			SeleniumUtil.saveHTMLPage("http://www.fantagazzetta.com/probabili-formazioni-serie-A", filePathFantaGazzettaHTML);
 			SeleniumUtil.saveHTMLPage("http://www.gazzetta.it/Calcio/prob_form/campo.shtml", filePathGazzettaHTML);
-			FantaFormazioneUtil.salvaMiaFormazioneFantaGeniusSisal(filePathMiaFormazioneFantaGazzettaSisalHTML);
-			FantaFormazioneUtil.salvaMiaFormazioneFantaGenius(filePathMiaFormazioneFantaGazzettaHTML);
-			FantaFormazioneUtil.salvaVotiFantaGenius(filePathVotiFantaGazzettaHTML);
+			FantaFormazioneUtil.salvaMiaFormazioneFantaGeniusSisal(filePathMiaFormazioneFantaGazzettaSisalHTML, user, pass);
+			FantaFormazioneUtil.salvaMiaFormazioneFantaGenius(filePathMiaFormazioneFantaGazzettaHTML, user, pass);
+			FantaFormazioneUtil.salvaVotiFantaGenius(filePathVotiFantaGazzettaHTML, user, pass);
 
 			System.out.println("--- Probabili formazioni FantaGazzetta ---");
 			ListaGiocatori listaGiocatoriSquadre = new ListaGiocatori();

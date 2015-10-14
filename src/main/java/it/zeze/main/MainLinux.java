@@ -1,17 +1,22 @@
 package it.zeze.main;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class MainLinux extends Main {
 	
-	public void superMain() {
-		super.execute();
+	public void superMain(String user, String pass) {
+		super.execute(user, pass);
 	}
 	
 	
 	
 	/**
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		MainLinux mainWindows = new MainLinux();
 		
 		mainWindows.filePathFantaGazzettaHTML= "/home/enrico/Scrivania/FantaFormazione/html/fantagazzetta.html";
@@ -33,7 +38,12 @@ public class MainLinux extends Main {
 		mainWindows.filePathVotiFantaGazzettaHTML ="/home/enrico/Scrivania/FantaFormazione/html/votiFantaGazzetta.html";
 		mainWindows.filePathVotiFantaGazzettaTXT ="/home/enrico/Scrivania/FantaFormazione/txt/votiFantaGazzetta.txt";
 		
-		mainWindows.execute();
+		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Inserisci user accesso al sito: ");
+		String user = dataIn.readLine();
+		System.out.print("Inserisci pass accesso al sito: ");
+		String pass = dataIn.readLine();
+		mainWindows.execute(user, pass);
 
 	}
 

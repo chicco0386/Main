@@ -90,7 +90,11 @@ public class NewMain {
 			System.out.print("Salva statistiche (S/N): ");
 			paramInput = dataIn.readLine();
 			if (paramInput == null || paramInput.equalsIgnoreCase("s")) {
-				salvaStatistiche();
+				System.out.print("Inserisci user accesso al sito: ");
+				String user = dataIn.readLine();
+				System.out.print("Inserisci pass accesso al sito: ");
+				String pass = dataIn.readLine();
+				salvaStatistiche(user, pass);
 			}
 
 		} catch (FileNotFoundException e) {
@@ -107,7 +111,7 @@ public class NewMain {
 		}
 	}
 
-	public void salvaStatistiche() {
+	public void salvaStatistiche(String user, String pass) {
 		try {
 			init();
 			File cartellaDestHTML = new File(rootFileHTML);
@@ -119,7 +123,7 @@ public class NewMain {
 				cartellaDestTXT.mkdirs();
 			}
 			// Salva voti per giornata
-			FantaFormazioneUtil.salvaStatistichePerTutteLeGiornate(pathFileHTMLStatistiche);
+			FantaFormazioneUtil.salvaStatistichePerTutteLeGiornate(pathFileHTMLStatistiche, user, pass);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
