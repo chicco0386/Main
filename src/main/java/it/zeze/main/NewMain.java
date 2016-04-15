@@ -90,11 +90,11 @@ public class NewMain {
 			System.out.print("Salva statistiche (S/N): ");
 			paramInput = dataIn.readLine();
 			if (paramInput == null || paramInput.equalsIgnoreCase("s")) {
-				System.out.print("Inserisci user accesso al sito: ");
-				String user = dataIn.readLine();
-				System.out.print("Inserisci pass accesso al sito: ");
-				String pass = dataIn.readLine();
-				salvaStatistiche(user, pass);
+//				System.out.print("Inserisci user accesso al sito: ");
+//				String user = dataIn.readLine();
+//				System.out.print("Inserisci pass accesso al sito: ");
+//				String pass = dataIn.readLine();
+				salvaStatistiche(null, null);
 			}
 
 		} catch (FileNotFoundException e) {
