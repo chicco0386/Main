@@ -10,6 +10,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.xpath.XPathExpressionException;
+
 import org.htmlcleaner.XPatherException;
 
 public class NewMain {
@@ -33,7 +38,7 @@ public class NewMain {
 		pathFileHTMLGiocatoriDifensori = rootFileHTML + "/giocatoriD.html";
 		pathFileHTMLGiocatoriCentrocampisti = rootFileHTML + "/giocatoriC.html";
 		pathFileHTMLGiocatoriAttaccanti = rootFileHTML + "/giocatoriA.html";
-		pathFileHTMLCalendario = rootFileHTML + "/calendario.html";
+		pathFileHTMLCalendario = rootFileHTML + "/calendario_{giornata}_.html";
 		pathFileHTMLStatistiche = rootFileHTML + "/statisticheG{giornata}.html";
 		pathFileHTMLProbFormazioniFG = rootFileHTML + "/probFormazioniFG{giornata}.html";
 		pathFileHTMLProbFormazioniGS = rootFileHTML + "/probFormazioniGS{giornata}.html";
@@ -104,6 +109,18 @@ public class NewMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (XPatherException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (XPathExpressionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TransformerFactoryConfigurationError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TransformerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
