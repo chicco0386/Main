@@ -23,6 +23,9 @@ public class NewMain {
 	protected String rootFileTXT;
 
 	private String pathFileHTMLSquadre;
+	private String pathFileHTMLGiocatori;
+	private String pathFileHTMLGiocatoriRuolo;
+	private String templateUrlGiocatori;
 	private String pathFileHTMLGiocatoriPortieri;
 	private String pathFileHTMLGiocatoriDifensori;
 	private String pathFileHTMLGiocatoriCentrocampisti;
@@ -34,6 +37,9 @@ public class NewMain {
 
 	private void init() {
 		pathFileHTMLSquadre = rootFileHTML + "/squadre.html";
+		pathFileHTMLGiocatori = rootFileHTML + "/giocatori.html";
+		pathFileHTMLGiocatoriRuolo = rootFileHTML + "/giocatori_{ruolo}.json";
+		templateUrlGiocatori = "http://d22uzg7kr35tkk.cloudfront.net/web/quotazioni/milano/{ruolo}{stampa}.txt";
 		pathFileHTMLGiocatoriPortieri = rootFileHTML + "/giocatoriP.html";
 		pathFileHTMLGiocatoriDifensori = rootFileHTML + "/giocatoriD.html";
 		pathFileHTMLGiocatoriCentrocampisti = rootFileHTML + "/giocatoriC.html";
@@ -71,10 +77,11 @@ public class NewMain {
 			System.out.print("Salva giocatori (S/N): ");
 			paramInput = dataIn.readLine();
 			if (paramInput == null || paramInput.equalsIgnoreCase("s")) {
-				FantaFormazioneUtil.salvaGiocatoriPortieri(pathFileHTMLGiocatoriPortieri);
-				FantaFormazioneUtil.salvaGiocatoriDifensori(pathFileHTMLGiocatoriDifensori);
-				FantaFormazioneUtil.salvaGiocatoriCentrocampisti(pathFileHTMLGiocatoriCentrocampisti);
-				FantaFormazioneUtil.salvaGiocatoriAttaccanti(pathFileHTMLGiocatoriAttaccanti);
+//				FantaFormazioneUtil.salvaGiocatoriPortieri(pathFileHTMLGiocatoriPortieri);
+//				FantaFormazioneUtil.salvaGiocatoriDifensori(pathFileHTMLGiocatoriDifensori);
+//				FantaFormazioneUtil.salvaGiocatoriCentrocampisti(pathFileHTMLGiocatoriCentrocampisti);
+//				FantaFormazioneUtil.salvaGiocatoriAttaccanti(pathFileHTMLGiocatoriAttaccanti);
+				FantaFormazioneUtil.salvaTuttiGiocatoriNew(pathFileHTMLGiocatori, pathFileHTMLGiocatoriRuolo, templateUrlGiocatori);
 			}
 
 			// Calendario
