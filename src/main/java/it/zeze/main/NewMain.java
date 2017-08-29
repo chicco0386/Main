@@ -39,7 +39,7 @@ public class NewMain {
 		pathFileHTMLSquadre = rootFileHTML + "/squadre.html";
 		pathFileHTMLGiocatori = rootFileHTML + "/giocatori.html";
 		pathFileHTMLGiocatoriRuolo = rootFileHTML + "/giocatori_{ruolo}.json";
-		templateUrlGiocatori = "http://d22uzg7kr35tkk.cloudfront.net/web/quotazioni/milano/{ruolo}{stampa}.txt";
+		templateUrlGiocatori = "http://content.fantagazzetta.com/web/quotazioni/alternativi/{ruolo}{stampa}.txt";
 		pathFileHTMLGiocatoriPortieri = rootFileHTML + "/giocatoriP.html";
 		pathFileHTMLGiocatoriDifensori = rootFileHTML + "/giocatoriD.html";
 		pathFileHTMLGiocatoriCentrocampisti = rootFileHTML + "/giocatoriC.html";
