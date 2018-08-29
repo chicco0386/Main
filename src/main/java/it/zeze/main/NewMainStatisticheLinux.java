@@ -10,7 +10,7 @@ public class NewMainStatisticheLinux extends NewMain {
 
 	public void salvaStatistichePiuFormazioni(String user, String pass) {
 		try {
-			super.salvaProbabiliFormazioni();
+			super.salvaProbabiliFormazioni(false);
 			super.salvaStatistiche(user, pass);
 		} finally {
 			SeleniumUtil.closeDriver();

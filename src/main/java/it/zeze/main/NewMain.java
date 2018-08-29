@@ -3,19 +3,13 @@ package it.zeze.main;
 import it.zeze.bo.ListaSquadre;
 import it.zeze.selenium.SeleniumUtil;
 import it.zeze.util.FantaFormazioneUtil;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.htmlcleaner.XPatherException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.xpath.XPathExpressionException;
-
-import org.htmlcleaner.XPatherException;
+import java.io.*;
 
 public class NewMain {
 
@@ -68,7 +62,7 @@ public class NewMain {
 			System.out.print("Salva squadre (S/N): ");
 			String paramInput = dataIn.readLine();
 			if (paramInput == null || paramInput.equalsIgnoreCase("s")) {
-				FantaFormazioneUtil.salvaSquadre(pathFileHTMLSquadre);
+				FantaFormazioneUtil.salvaSquadre(pathFileHTMLSquadre, false);
 				ListaSquadre listaSquadre = new ListaSquadre();
 				listaSquadre.unmarshallFromHtmlFile(pathFileHTMLSquadre);
 			}
@@ -77,25 +71,21 @@ public class NewMain {
 			System.out.print("Salva giocatori (S/N): ");
 			paramInput = dataIn.readLine();
 			if (paramInput == null || paramInput.equalsIgnoreCase("s")) {
-//				FantaFormazioneUtil.salvaGiocatoriPortieri(pathFileHTMLGiocatoriPortieri);
-//				FantaFormazioneUtil.salvaGiocatoriDifensori(pathFileHTMLGiocatoriDifensori);
-//				FantaFormazioneUtil.salvaGiocatoriCentrocampisti(pathFileHTMLGiocatoriCentrocampisti);
-//				FantaFormazioneUtil.salvaGiocatoriAttaccanti(pathFileHTMLGiocatoriAttaccanti);
-				FantaFormazioneUtil.salvaTuttiGiocatoriNew(pathFileHTMLGiocatori, pathFileHTMLGiocatoriRuolo, templateUrlGiocatori);
+				FantaFormazioneUtil.salvaTuttiGiocatoriNew(pathFileHTMLGiocatori, pathFileHTMLGiocatoriRuolo, templateUrlGiocatori, false);
 			}
 
 			// Calendario
 			System.out.print("Salva calendario (S/N): ");
 			paramInput = dataIn.readLine();
 			if (paramInput == null || paramInput.equalsIgnoreCase("s")) {
-				FantaFormazioneUtil.salvaCalendario(pathFileHTMLCalendario);
+				FantaFormazioneUtil.salvaCalendario(pathFileHTMLCalendario, false);
 			}
 
 			// Probabili formazioni
 			System.out.print("Salva probabili formazioni (S/N): ");
 			paramInput = dataIn.readLine();
 			if (paramInput == null || paramInput.equalsIgnoreCase("s")) {
-				salvaProbabiliFormazioni();
+				salvaProbabiliFormazioni(false);
 			}
 
 			// Salva voti per giornata
@@ -160,7 +150,7 @@ public class NewMain {
 		}
 	}
 
-	public void salvaProbabiliFormazioni() {
+	public void salvaProbabiliFormazioni(boolean useSelenium) {
 		try {
 			init();
 			File cartellaDestHTML = new File(rootFileHTML);
@@ -171,8 +161,8 @@ public class NewMain {
 			if (!cartellaDestTXT.exists()) {
 				cartellaDestTXT.mkdirs();
 			}
-			FantaFormazioneUtil.salvaProbabiliFormazioniFG(pathFileHTMLProbFormazioniFG);
-			FantaFormazioneUtil.salvaProbabiliFormazioniGazzetta(pathFileHTMLProbFormazioniGS);
+			FantaFormazioneUtil.salvaProbabiliFormazioniFG(pathFileHTMLProbFormazioniFG, useSelenium);
+			FantaFormazioneUtil.salvaProbabiliFormazioniGazzetta(pathFileHTMLProbFormazioniGS, useSelenium);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -7,7 +7,7 @@ public class NewMainFormazioniLinux extends NewMain {
 
 	public void salvaStatistichePiuFormazioni() {
 		try {
-			super.salvaProbabiliFormazioni();
+			super.salvaProbabiliFormazioni(false);
 		} finally {
 			SeleniumUtil.closeDriver();
 		}
