@@ -23,8 +23,8 @@ public class NewMainStatisticheLinux extends NewMain {
 	 */
 	public static void main(String[] args) throws IOException {
 		NewMainStatisticheLinux mainWindows = new NewMainStatisticheLinux();
-		mainWindows.rootFileHTML = "/home/enrico/Scrivania/ZeZe/fantaFormazione/new_html";
-		mainWindows.rootFileTXT = "/home/enrico/Scrivania/ZeZe/fantaFormazione/new_txt";
+		mainWindows.rootFileHTML = "/home/enrico/Desktop/ZeZe/fantaFormazione/new_html";
+		mainWindows.rootFileTXT = "/home/enrico/Desktop/ZeZe/fantaFormazione/new_txt";
 		BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("Inserisci user accesso al sito: ");
 		String user = dataIn.readLine();
